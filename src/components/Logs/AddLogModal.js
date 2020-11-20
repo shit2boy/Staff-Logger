@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { addLog } from "../../actions/LogAction";
+import TechSelectionOptions from "../Techs/TechSelectionOptions";
 
 const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
@@ -55,15 +56,11 @@ const AddLogModal = ({ addLog }) => {
               className="browser-default"
               onChange={(e) => setTech(e.target.value)}
             >
-              <option value="Shittu Akeem" disabled>
-                Akeem Technician
+              <option value="" disabled>
+                Select Staff
               </option>
-              <option value="Shittu Akeem">Tolulope Technician</option>
-              <option value="Shittu ">Akeem </option>
+              <TechSelectionOptions />
             </select>
-            <label htmlFor="message" className="active">
-              Log Message
-            </label>
           </div>
         </div>
         <div className="row">

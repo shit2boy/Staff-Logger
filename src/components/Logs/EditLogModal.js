@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
-import { clearCurrent, setCurrent, updateLog } from "../../actions/LogAction";
+import { clearCurrent, updateLog } from "../../actions/LogAction";
 import PropTypes from "prop-types";
+import TechSelectionOptions from "../Techs/TechSelectionOptions";
 
 const EditLogModal = ({ current, updateLog, clearCurrent }) => {
   const [message, setMessage] = useState("");
@@ -23,9 +24,11 @@ const EditLogModal = ({ current, updateLog, clearCurrent }) => {
       M.toast({ html: "Please fill the input field" });
     } else {
       const editedLog = {
+        id: current.id,
         message,
         attention,
         tech,
+        date: new Date(),
       };
       updateLog(editedLog);
       clearCurrent();
@@ -47,9 +50,9 @@ const EditLogModal = ({ current, updateLog, clearCurrent }) => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <label htmlFor="message" className="">
+            {/* <label htmlFor="message" className="">
               Log Message
-            </label>
+            </label> */}
           </div>
         </div>
         <div className="row">
@@ -60,15 +63,11 @@ const EditLogModal = ({ current, updateLog, clearCurrent }) => {
               className="browser-default"
               onChange={(e) => setTech(e.target.value)}
             >
-              <option value="Shittu Akeem" disabled>
-                Akeem Technician
+              <option value="" disabled>
+                Select Staff
               </option>
-              <option value="Shittu Akeem">Tolulope Technician</option>
-              <option value="Shittu ">Akeem </option>
+              <TechSelectionOptions />
             </select>
-            <label htmlFor="message" className="active">
-              Log Message
-            </label>
           </div>
         </div>
         <div className="row">

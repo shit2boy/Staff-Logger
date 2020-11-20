@@ -7,6 +7,7 @@ import {
   UPDATE_LOG,
   CLEAR_CURRENT,
   SET_CURRENT,
+  SEARCH_LOGS,
 } from "./types";
 
 // export const getLogs = () => {
@@ -86,7 +87,7 @@ export const deleteLog = (id) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -109,7 +110,7 @@ export const updateLog = (log) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -124,4 +125,24 @@ export const clearCurrent = () => {
   return {
     type: CLEAR_CURRENT,
   };
+};
+
+//searchbar for staff logger
+
+export const searchLog = (text) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`http://localhost:5000/logs?q=${text}`);
+    const data = await res.json();
+    dispatch({
+      type: SEARCH_LOGS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.statusText,
+    });
+  }
 };

@@ -7,6 +7,7 @@ import {
   UPDATE_LOG,
   CLEAR_CURRENT,
   SET_CURRENT,
+  SEARCH_LOGS,
 } from "../actions/types";
 
 const initialState = {
@@ -47,7 +48,7 @@ export default (state = initialState, action) => {
         ...state,
         current: action.payload,
         logs: state.logs.map((log) =>
-          log.id === action.payload ? action.payload : log
+          log.id === action.payload.id ? action.payload : log
         ),
         loading: false,
       };
@@ -60,6 +61,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         current: action.payload,
+      };
+    case SEARCH_LOGS:
+      return {
+        ...state,
+        logs: action.payload,
       };
     case LOGS_ERROR:
       console.log(action.payload);
