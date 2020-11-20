@@ -5,6 +5,13 @@ import SearchBar from "./components/Layouts/SearchBar";
 import AddBtn from "./components/Layouts/AddBtn";
 import Logs from "./components/Logs/Logs";
 import AddLogModal from "./components/Logs/AddLogModal";
+import EditLogModal from "./components/Logs/EditLogModal";
+import AddTechModal from "./components/Techs/AddTechModal";
+
+import TechListModal from "./components/Techs/TechListModal";
+import { Provider } from "react-redux";
+import store from "./Store";
+
 import "./App.css";
 
 const App = () => {
@@ -14,14 +21,19 @@ const App = () => {
   });
 
   return (
-    <Fragment>
-      <SearchBar />
-      <div className="container">
-        <AddBtn />
-        <AddLogModal />
-        <Logs />
-      </div>
-    </Fragment>
+    <Provider store={store}>
+      <Fragment>
+        <SearchBar />
+        <div className="container">
+          <AddBtn />
+          <AddLogModal />
+          <EditLogModal />
+          <AddTechModal />
+          <TechListModal />
+          <Logs />
+        </div>
+      </Fragment>
+    </Provider>
   );
 };
 

@@ -1,13 +1,6 @@
 {
   "logs": [
     {
-      "message": "Changed network card in server 007",
-      "attention": false,
-      "tech": "Sam Smith",
-      "date": "2019-05-31T15:46:10.179Z",
-      "id": 1
-    },
-    {
       "id": 2,
       "message": "Fixed hard drive on workstation 002",
       "attention": false,
@@ -22,11 +15,39 @@
       "id": 3
     },
     {
-      "id": 4,
-      "message": "Workstation 026 is up and running",
-      "attention": false,
-      "tech": "Sara Wilson",
-      "date": "2019-05-31T19:57:35.544Z"
+      "message": "get yourself a job",
+      "attention": true,
+      "tech": "Shittu ",
+      "date": "2020-11-20T03:08:32.270Z",
+      "id": 5
+    },
+    {
+      "message": "may Allah help",
+      "attention": true,
+      "tech": "Shittu ",
+      "date": "2020-11-20T03:10:17.443Z",
+      "id": 7
+    },
+    {
+      "message": "find yourself a girl",
+      "attention": "",
+      "tech": "Shittu ",
+      "date": "2020-11-20T03:10:36.034Z",
+      "id": 8
+    },
+    {
+      "message": "It's a process",
+      "attention": "",
+      "tech": "Shittu ",
+      "date": "2020-11-20T03:11:04.816Z",
+      "id": 9
+    },
+    {
+      "message": "do right",
+      "attention": "",
+      "tech": "Shittu ",
+      "date": "2020-11-20T03:11:29.239Z",
+      "id": 10
     }
   ],
   "techs": [
